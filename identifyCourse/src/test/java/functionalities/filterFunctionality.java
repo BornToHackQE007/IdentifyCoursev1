@@ -3,6 +3,8 @@ package functionalities;
 import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -14,6 +16,7 @@ public class filterFunctionality extends BaseUi{
 	    public void setFilters()
 		{
 			// Wait till element gets click-able
+	    	driver.manage().timeouts().pageLoadTimeout(60,TimeUnit.SECONDS);
 	    	waitElementClickable(config.getProperty("languageDrop"));
 	    	
 	    	// Find and Click Drop Down language filter
