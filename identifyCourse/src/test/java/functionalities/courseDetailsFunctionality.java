@@ -87,8 +87,6 @@ public class courseDetailsFunctionality extends BaseUi{
 			tabsGUId = new ArrayList<String>(driver.getWindowHandles());
 			driver.switchTo().window(tabsGUId.get(++tabNumber));	
 			pageLoad(60);
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,700)");
 			duration[i] = driver.findElement(By.xpath(config.getProperty("courseDuration"))).getText();
 			snap("Course page("+i+")");
 			System.out.println("   "+duration[i]);
@@ -99,7 +97,7 @@ public class courseDetailsFunctionality extends BaseUi{
 		}
 		
 		try {
-			SendToExcel.sendData(courseName, courseRating, duration, "COURSE DETAILS", "COURSE NAME", "COURSE RATING", "COURSE DURATION");
+			SendToExcel.sendData(courseName, courseRating, duration, "Course Details", "COURSE NAME", "COURSE RATING", "COURSE DURATION");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}	

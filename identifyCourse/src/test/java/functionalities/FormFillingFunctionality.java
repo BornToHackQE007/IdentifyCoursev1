@@ -1,6 +1,8 @@
 package functionalities;
 
 import java.util.ArrayList;
+//import java.util.Iterator;
+//import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -8,12 +10,11 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+//import org.testng.annotations.DataProvider;
 
 import utilities.*;
 
-public class FormFillingFunctionality extends BaseUi
-{
-	public ArrayList<String> tabsGUId;
+public class FormFillingFunctionality extends BaseUi {
 	
 	/*
 	 * Identifying whether Drop down appears or not and acting accordingly 

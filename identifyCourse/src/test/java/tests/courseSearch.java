@@ -1,7 +1,9 @@
 package tests;
 
 import org.testng.annotations.Test;
+//import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+//import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.*;
 
 import utilities.*;
@@ -19,7 +21,7 @@ public class courseSearch extends BaseUi{
 	@BeforeSuite
 	public void openWebsite()
 	{
-		driver = getDriver("Chrome");
+		driver = getDriver("chrome");
 		openUrl();	
 	}
 	
@@ -34,7 +36,6 @@ public class courseSearch extends BaseUi{
 	@Test (priority=1)
 	public void searchCourse() 
 	{
-		
 		details.search("Web Development");
 		details.filter("English","Beginner");
 		details.getCourseDetails(2);
@@ -43,7 +44,6 @@ public class courseSearch extends BaseUi{
 	@Test (priority=2)
 	public void filterDetails()
 	{
-		
 		openUrl();
 		details.search("Language Learning");
 		filter.setFilters();
@@ -57,14 +57,12 @@ public class courseSearch extends BaseUi{
 		fill.navigateForm();
 		fill.setFormValues(1);
 	}
-	
 	@Test (priority = 4)
 	public void fillFormCorrectData()
 	{
 		refresh();
 		fill.setFormValues(2);
 	}
-	
 	
 	@AfterSuite
 	public void exitBrowser()

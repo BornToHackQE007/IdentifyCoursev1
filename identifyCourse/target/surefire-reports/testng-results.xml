@@ -2,36 +2,36 @@
 <testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
   <reporter-output>
   </reporter-output>
-  <suite name="Hackathon" duration-ms="95373" started-at="2020-10-22T22:01:43 IST" finished-at="2020-10-22T22:03:19 IST">
+  <suite name="Hackathon" duration-ms="159714" started-at="2020-10-26T11:20:48 IST" finished-at="2020-10-26T11:23:27 IST">
     <groups>
     </groups>
-    <test name="IdentifyCourses" duration-ms="95373" started-at="2020-10-22T22:01:43 IST" finished-at="2020-10-22T22:03:19 IST">
+    <test name="IdentifyCourses" duration-ms="159714" started-at="2020-10-26T11:20:48 IST" finished-at="2020-10-26T11:23:27 IST">
       <class name="tests.courseSearch">
-        <test-method status="PASS" signature="openWebsite()[pri:0, instance:tests.courseSearch@77cd7a0]" name="openWebsite" is-config="true" duration-ms="22144" started-at="2020-10-22T22:01:21 IST" finished-at="2020-10-22T22:01:43 IST">
+        <test-method status="PASS" signature="openWebsite()[pri:0, instance:tests.courseSearch@3159c4b8]" name="openWebsite" is-config="true" duration-ms="31805" started-at="2020-10-26T11:20:16 IST" finished-at="2020-10-26T11:20:48 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openWebsite -->
-        <test-method status="PASS" signature="initiateClasses()[pri:0, instance:tests.courseSearch@77cd7a0]" name="initiateClasses" is-config="true" duration-ms="17" started-at="2020-10-22T22:01:45 IST" finished-at="2020-10-22T22:01:45 IST">
+        <test-method status="PASS" signature="initiateClasses()[pri:0, instance:tests.courseSearch@3159c4b8]" name="initiateClasses" is-config="true" duration-ms="16" started-at="2020-10-26T11:20:48 IST" finished-at="2020-10-26T11:20:48 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initiateClasses -->
-        <test-method status="PASS" signature="searchCourse()[pri:1, instance:tests.courseSearch@77cd7a0]" name="searchCourse" duration-ms="30856" started-at="2020-10-22T22:01:45 IST" finished-at="2020-10-22T22:02:16 IST">
+        <test-method status="PASS" signature="searchCourse()[pri:1, instance:tests.courseSearch@3159c4b8]" name="searchCourse" duration-ms="45073" started-at="2020-10-26T11:20:48 IST" finished-at="2020-10-26T11:21:33 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- searchCourse -->
-        <test-method status="PASS" signature="filterDetails()[pri:2, instance:tests.courseSearch@77cd7a0]" name="filterDetails" duration-ms="17909" started-at="2020-10-22T22:02:16 IST" finished-at="2020-10-22T22:02:34 IST">
+        <test-method status="PASS" signature="filterDetails()[pri:2, instance:tests.courseSearch@3159c4b8]" name="filterDetails" duration-ms="27986" started-at="2020-10-26T11:21:34 IST" finished-at="2020-10-26T11:22:02 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- filterDetails -->
-        <test-method status="PASS" signature="fillFormIncorrectData()[pri:3, instance:tests.courseSearch@77cd7a0]" name="fillFormIncorrectData" duration-ms="26537" started-at="2020-10-22T22:02:35 IST" finished-at="2020-10-22T22:03:01 IST">
+        <test-method status="PASS" signature="fillFormIncorrectData()[pri:3, instance:tests.courseSearch@3159c4b8]" name="fillFormIncorrectData" duration-ms="64543" started-at="2020-10-26T11:22:02 IST" finished-at="2020-10-26T11:23:07 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- fillFormIncorrectData -->
-        <test-method status="PASS" signature="fillFormCorrectData()[pri:4, instance:tests.courseSearch@77cd7a0]" name="fillFormCorrectData" duration-ms="13433" started-at="2020-10-22T22:03:02 IST" finished-at="2020-10-22T22:03:15 IST">
+        <test-method status="PASS" signature="fillFormCorrectData()[pri:4, instance:tests.courseSearch@3159c4b8]" name="fillFormCorrectData" duration-ms="19293" started-at="2020-10-26T11:23:07 IST" finished-at="2020-10-26T11:23:27 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- fillFormCorrectData -->
-        <test-method status="PASS" signature="exitBrowser()[pri:0, instance:tests.courseSearch@77cd7a0]" name="exitBrowser" is-config="true" duration-ms="1651" started-at="2020-10-22T22:03:19 IST" finished-at="2020-10-22T22:03:21 IST">
+        <test-method status="PASS" signature="exitBrowser()[pri:0, instance:tests.courseSearch@3159c4b8]" name="exitBrowser" is-config="true" duration-ms="879" started-at="2020-10-26T11:23:28 IST" finished-at="2020-10-26T11:23:29 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- exitBrowser -->

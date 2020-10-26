@@ -1,10 +1,12 @@
 package tests;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import utilities.*;
 
 //Listener class used to generate Extent reports
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.testng.ITestContext;
 import org.testng.ITestResult;
@@ -19,19 +21,19 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.ChartLocation;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
-import utilities.BaseUi;
-
 public class ExtentReport extends TestListenerAdapter
 {
 	public ExtentHtmlReporter htmlReporter;
 	public ExtentReports extent;
 	public ExtentTest logger;
-	public BaseUi obj=new BaseUi();
+	BaseUi obj = new BaseUi();
 	
 		
 	public void onStart(ITestContext testContext)
 	{
-		
+		/*
+		 * Setting timeStamp for name
+		 */
 		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());//time stamp
 		String repName="Test-Report-"+timeStamp+".html";
 		
@@ -53,8 +55,8 @@ public class ExtentReport extends TestListenerAdapter
 	
 	public void onTestSuccess(ITestResult tr)
 	{
-		String destination = obj.snap(tr.getName())+".png";
-		logger=extent.createTest(tr.getName()); // create new entry in the report
+		String destination = obj.snap(tr.getName());
+		logger=extent.createTest(tr.getName()); // create new entry in th report
 		logger.log(Status.PASS,MarkupHelper.createLabel(tr.getName(),ExtentColor.GREEN)); // send the passed information to the report with GREEN color highlighted
 		try {
 			logger.log(Status.PASS, "SnapShot below: "+logger.addScreenCaptureFromPath(destination));
@@ -69,7 +71,6 @@ public class ExtentReport extends TestListenerAdapter
 	{
 		logger=extent.createTest(tr.getName()); // create new entry in th report
 		logger.log(Status.FAIL,MarkupHelper.createLabel(tr.getName(),ExtentColor.RED)); // send the passed information to the report with GREEN color highlighted
-		
 		
 	}
 	

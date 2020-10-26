@@ -1,2 +1,2 @@
-cd C:\Users\HP\workspace_new\identifyCourse
+cd /home/tushar/Documents/identifyCourse
 mvn clean install

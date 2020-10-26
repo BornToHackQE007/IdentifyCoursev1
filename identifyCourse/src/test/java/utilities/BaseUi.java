@@ -13,8 +13,11 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -35,11 +38,13 @@ public class BaseUi {
 		try {
 			reader = new FileReader(path);
 		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
 			config.load(reader);
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -47,38 +52,44 @@ public class BaseUi {
     /* 
      * Method to open user choice of browser
      */
-    public WebDriver getDriver(String browser)
-    {
-    	//System.out.println("Enter browser name from available options: \n1. Chrome\n2. Firefox\n3. Opera");
-    	System.out.println("\n Browser selected: "+browser);
-    	System.out.println("\nTo change browser selection go-through README File");
-    	
+	public WebDriver getDriver(String browser) {
+		//System.out.println("Enter browser name from available options: \n1. Chrome\n2. Firefox\n3. Opera");
+		System.out.println("Browser selected: " + browser);
+		System.out.println("\nTo change browser selection Go-To README File");
 		// If browser entered is chrome, open chrome browser
-		if(browser.equalsIgnoreCase("chrome"))
-    	{
-    		 System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/drivers/chromedriver.exe");
-    		 driver = new ChromeDriver();
-    	}
-		
+		if (browser.equalsIgnoreCase("chrome")) {
+			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/drivers/chromedriver.exe");
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--no-sandbox");
+			options.addArguments("--headless"); //should be enabled for Jenkins
+			options.addArguments("--disable-dev-shm-usage"); //should be enabled for Jenkins
+			options.addArguments("--window-size=1920x1080"); //should be enabled for Jenkins
+			driver = new ChromeDriver(options);
+
+			//driver = new ChromeDriver();
+		}
+
 		// If browser entered is firefox, open firefox browser
-    	else if(browser.equalsIgnoreCase("firefox"))		
-    	{
-    		System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"/drivers/geckodriver.exe");
-    		driver = new FirefoxDriver();
-    	}
-		//If browser entered is opera, open opera browser
-    	else if(browser.equalsIgnoreCase("opera"))		
-    	{
-    		System.setProperty("webdriver.opera.driver", System.getProperty("user.dir")+"/drivers/operadriver.exe");
-    		driver = new OperaDriver();
-    	}
-		
-		
-		
+		else if (browser.equalsIgnoreCase("firefox")) {
+			System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/drivers/geckodriver.exe");
+			//FirefoxOptions options = new FirefoxOptions();
+			//options.addArguments("-headless");
+			FirefoxBinary firefoxBinary = new FirefoxBinary();
+			firefoxBinary.addCommandLineOptions("--headless");
+		    FirefoxProfile profile=new FirefoxProfile();
+		  
+			FirefoxOptions firefoxOptions = new FirefoxOptions();
+			firefoxOptions.setBinary(firefoxBinary);		
+			firefoxOptions.setProfile(profile);
+	 	    driver=new FirefoxDriver(firefoxOptions);
+
+			//driver = new FirefoxDriver(options);
+		}
+
 		// Maximize window
-    	driver.manage().window().maximize();	
+		driver.manage().window().maximize();
 		return driver;
-    }
+	}
 	
     /*
      * Method to Open URL
@@ -100,7 +111,7 @@ public class BaseUi {
 	/*
 	 * Take Screenshot
 	 */
-public String snap(String fileName) {
+	public String snap(String fileName) {
 		
 		// Creating a screenshot driver and storing in scrFile temporarily.
 		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
@@ -121,7 +132,6 @@ public String snap(String fileName) {
 	public void pageLoad(int time) {
 		driver.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
 	}
-	
 	/*
 	 * Page Refresh
 	 */
@@ -136,6 +146,4 @@ public String snap(String fileName) {
 	public void quitBrowser() {
 		driver.quit();
 	}
-	
-
 }	
